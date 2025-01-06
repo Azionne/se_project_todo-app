@@ -46,9 +46,9 @@ class Todo {
     const todoDate = this._todoElement.querySelector(".todo__date");
 
     todoNameEl.textContent = this._data.name;
-    todoDate.textContent = this._dueDate();
+    todoDate.textContent = this._generateDueDate();
 
-    this._generateCheckBoxEl();
+    this._generateCheckboxEl();
     this._setEventListeners();
 
     return this._todoElement;
