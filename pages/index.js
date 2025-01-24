@@ -33,7 +33,6 @@ const generateTodo = (data) => {
 const renderTodo = (item) => {
   const todo = generateTodo(item);
   todosList.append(todo);
-  todoCounter.updateTotal(true); // Increment total count when a new todo is added
 };
 
 const section = new Section({
@@ -52,6 +51,7 @@ const addTodoPopup = new PopupWithForm({
     const { name, date } = formData;
     const id = uuidv4();
     const values = { name, date: new Date(date), id };
+    todoCounter.updateTotal(true);
     renderTodo(values);
     addTodoPopup.close();
     newTodoValidator.resetValidation();

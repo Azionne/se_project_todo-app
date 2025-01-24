@@ -12,9 +12,8 @@ class TodoCounter {
   }
 
   updateTotal(increment) {
-    console.log("updateTotal called with increment:", increment);
     this._total += increment ? 1 : -1;
-    console.log("New total:", this._total);
+
     this._updateText();
   }
 

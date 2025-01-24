@@ -32,7 +32,7 @@ class Todo {
   _setEventListeners() {
     const checkbox = this._todoElement.querySelector(".todo__completed");
     const deleteButton = this._todoElement.querySelector(".todo__delete-btn");
-
+    checkbox.checked = this._completed;
     checkbox.addEventListener("change", this._toggleCompletion);
     deleteButton.addEventListener("click", this._handleDeleteClick);
   }
