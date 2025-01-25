@@ -25,9 +25,7 @@ class FormValidator {
         this._toggleButtonState();
       });
     });
-    this._formElement.addEventListener("reset", () => {
-      this.resetValidation();
-    });
+    this.resetValidation();
   }
 
   _showInputError(formElement, inputElement, errorMessage) {

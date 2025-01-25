@@ -44,6 +44,13 @@ class Todo {
 
     const todoNameEl = this._todoElement.querySelector(".todo__name");
     const todoDateEl = this._todoElement.querySelector(".todo__date");
+    const checkbox = this._todoElement.querySelector(".todo__completed");
+    const label = this._todoElement.querySelector(".todo__label");
+
+    const uniqueId = `todo-${this._data.id}`;
+
+    checkbox.id = uniqueId;
+    label.setAttribute("for", uniqueId);
 
     todoNameEl.textContent = this._data.name;
     todoDateEl.textContent = this._generateDueDate();

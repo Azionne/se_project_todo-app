@@ -32,16 +32,16 @@ const generateTodo = (data) => {
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);
-  todosList.append(todo);
+  section.addItem(todo);
 };
 
-const section = new Section({
-  items: initialTodos,
-  renderer: (item) => {
-    renderTodo(item);
+const section = new Section(
+  {
+    items: initialTodos,
+    renderer: renderTodo,
   },
-  containerSelector: ".todos__list",
-});
+  ".todos-list"
+);
 
 section.renderItems();
 
@@ -51,6 +51,8 @@ const addTodoPopup = new PopupWithForm({
     const { name, date } = formData;
     const id = uuidv4();
     const values = { name, date: new Date(date), id };
+    const todoElement = generateTodo(values);
+    section.addItem(todoElement);
     todoCounter.updateTotal(true);
     renderTodo(values);
     addTodoPopup.close();
